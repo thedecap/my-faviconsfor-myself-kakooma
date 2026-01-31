@@ -1,1 +1,29 @@
-<iframe src="https://1v1-lol-online.github.io/file/" frameborder="0" allowfullscreen></iframe>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supreme Duelist</title>
+  <style>
+    * { margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; background: #000; }
+  </style>
+</head>
+<body>
+  <script>
+    async function loadGame() {
+      try {
+        const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+        const part1 = await (await fetch(baseUrl + 'SupremeDuelist_Portable.html.part1')).text();
+        const part2 = await (await fetch(baseUrl + 'SupremeDuelist_Portable.html.part2')).text();
+        document.open();
+        document.write(part1 + part2);
+        document.close();
+      } catch (err) {
+        console.error('Failed to load:', err);
+      }
+    }
+    loadGame();
+  </script>
+</body>
+</html>
